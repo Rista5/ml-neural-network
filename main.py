@@ -97,7 +97,6 @@ model = create_model(input_shape=data.shape[1] - 1)
 
 X = train.values[:, 0:8]
 Y = train.values[:, 8]
-# X = (X-np.mean(X, axis=0))/np.std(X, axis=0)
 scaler = StandardScaler()
 X = scaler.fit_transform(X)
 
