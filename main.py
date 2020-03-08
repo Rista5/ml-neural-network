@@ -112,3 +112,20 @@ Y_pred = predictions.argmax(axis=1)
 evaluate_model(Y_test, Y_pred)
 
 # testiraj razlicite metrike, optimizatore, arhitekture ...
+
+y_true = [4.0,4.0,3.0,1.0]
+y_pred = [[0.2, 0.2, 0.2, 0.2], [0.6, 0.7, 0.1, 0.2], [0.3, 0.9, 0.1, 0.1], [0.1, 0.5, 0.7, 0.4]]
+
+y_true = tf.convert_to_tensor(y_true)
+y_pred = tf.convert_to_tensor(y_pred)
+# y_true_onehot = tf.convert_to_tensor(y_true_onehot)
+# y_pred_softmax = tf.nn.softmax(y_pred)
+var = keras.losses.sparse_categorical_crossentropy(y_true, y_pred)
+var2 = loss_func(y_true, y_pred)
+var3 = loss_func2(y_true, y_pred)
+
+# tf.print(var, output_stream=sys.stderr)
+with tf.Session() as sess:
+    print(var.eval())
+    print(var2.eval())
+    print(var3.eval())
